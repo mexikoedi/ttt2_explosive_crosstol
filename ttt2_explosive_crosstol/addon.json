@@ -1,0 +1,11 @@
+{
+    "title": "TTT2 Explosive Crosstol",
+    "type": "weapon",
+    "tags": "fun",
+    "description": "Pistol that fires explosive crossbow ammunition.",
+    "ignore": [
+        "*.psd",
+        "*.vcproj",
+        "*.svn"
+    ]
+}
