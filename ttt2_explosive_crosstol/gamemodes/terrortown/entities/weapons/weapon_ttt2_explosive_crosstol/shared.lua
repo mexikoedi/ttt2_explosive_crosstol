@@ -5,7 +5,6 @@ if SERVER then
     resource.AddFile( "sound/explosive_crosstol2.wav" )
 end
 
-SWEP.DrawWeaponInfoBox = true
 SWEP.Author = "mexikoedi"
 SWEP.Base = "weapon_tttbase"
 SWEP.Kind = WEAPON_EQUIP1
