@@ -27,9 +27,9 @@ jobs:
       with:
         output: reports
         # Scan auto-detects the languages in your project. To override uncomment the below variable and set the type
-        type: lua
+        #type: lua
 
     - name: Upload report
-      uses: github/codeql-action/upload-sarif@v1
+      uses: .github/
       with:
         sarif_file: reports
