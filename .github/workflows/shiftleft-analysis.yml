@@ -30,6 +30,6 @@ jobs:
         #type: lua
 
     - name: Upload report
-      uses: .github/
+      uses: actions/upload-artifact@v1.0.0
       with:
         sarif_file: reports
