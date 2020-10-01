@@ -15,5 +15,5 @@ jobs:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         stale-issue-message: 'Issue is on Stale now'
         stale-pr-message: 'Pull request is on Stale now'  
-        stale-issue-label: 'no-issue-activity'
-        stale-pr-label: 'no-pr-activity'
+        stale-issue-label: 'stale'
+        stale-pr-label: 'stale'
