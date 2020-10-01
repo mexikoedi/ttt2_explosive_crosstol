@@ -30,6 +30,6 @@ jobs:
         #type: lua
 
     - name: Upload report
-      uses: actions/upload-artifact@v1.0.0
+      uses: POST /repos/{owner}/{repo}/code-scanning/sarifs
       with:
         sarif_file: reports
