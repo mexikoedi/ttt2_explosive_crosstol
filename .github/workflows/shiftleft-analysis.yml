@@ -30,6 +30,6 @@ jobs:
         #type: lua
 
     - name: Upload report
-      uses: mexikoedi/TTT2_Explosive_Crosstol/action.yml@master
+      uses: ShiftLeftSecurity/scan-action@master
       with:
         sarif_file: reports
