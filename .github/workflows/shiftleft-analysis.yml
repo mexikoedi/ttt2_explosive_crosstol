@@ -30,6 +30,6 @@ jobs:
         #type: lua
 
     - name: Upload report
-      uses: ./.github/actions/codescan/report.yml
+      uses: ./.github/actions/codescan/action.yml
       with:
         sarif_file: reports
