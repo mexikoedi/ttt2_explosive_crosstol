@@ -30,6 +30,6 @@ jobs:
         #type: lua
 
     - name: Upload report
-      uses: mexikoedi/TTT2_Explosive_Crosstol/
+      uses: mexikoedi/TTT2_Explosive_Crosstol/action.yml
       with:
         sarif_file: reports
