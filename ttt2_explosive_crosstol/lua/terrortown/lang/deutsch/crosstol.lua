@@ -1,4 +1,4 @@
-L = LANG.GetLanguageTableReference( "deutsch" )
+L = LANG.GetLanguageTableReference( "de" )
 L[ "ttt2_explosive_crosstol_name" ] = "Explosive Crosstol"
 L[ "ttt2_explosive_crosstol_desc" ] = "Pistole die explosive Armbrust Munition verschießt."
 L[ "ttt2_explosive_crosstol_help1" ] = "{primaryfire} Schießen und Treffen."
