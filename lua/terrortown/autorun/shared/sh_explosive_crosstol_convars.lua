@@ -7,7 +7,7 @@ CreateConVar("ttt2_explosive_crosstol_automaticFire", "0", {FCVAR_ARCHIVE, FCVAR
 
 CreateConVar("ttt2_explosive_crosstol_damage", "100", {FCVAR_ARCHIVE, FCVAR_NOTIFY}, "Damage dealt on impact")
 
-CreateConVar("ttt2_explosive_crosstol_ammo", "1", {FCVAR_ARCHIVE, FCVAR_NOTIFY}, "Default ammo the explosive rosstol has when bought")
+CreateConVar("ttt2_explosive_crosstol_ammo", "1", {FCVAR_ARCHIVE, FCVAR_NOTIFY}, "Default ammo the explosive crosstol has when bought")
 
 CreateConVar("ttt2_explosive_crosstol_clipSize", "1", {FCVAR_ARCHIVE, FCVAR_NOTIFY}, "Clipsize of the explosive crosstol")
 
