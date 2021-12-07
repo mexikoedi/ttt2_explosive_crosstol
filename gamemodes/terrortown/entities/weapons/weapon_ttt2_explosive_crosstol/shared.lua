@@ -39,7 +39,7 @@ SWEP.AutoSpawnable = false
 SWEP.Primary.Recoil = 50
 SWEP.Primary.Damage = GetConVar("ttt2_explosive_crosstol_damage"):GetInt()
 SWEP.Primary.NumShots = -1
-SWEP.Primary.Delay = 5
+SWEP.Primary.Delay = 1
 SWEP.Primary.Distance = 10
 SWEP.Primary.ClipSize = GetConVar("ttt2_explosive_crosstol_clipSize"):GetInt()
 SWEP.Primary.DefaultClip = GetConVar("ttt2_explosive_crosstol_ammo"):GetInt()
@@ -120,7 +120,7 @@ if SERVER then
         local tr = self:GetOwner():GetEyeTrace()
         local dmg = DamageInfo()
         dmg:SetDamageType(64)
-        dmg:SetDamage(self.Primary.Damage)
+        dmg:SetDamage(self.Primary.Damage / 2)
         dmg:SetAttacker(self:GetOwner())
         dmg:SetInflictor(self)
         util.BlastDamageInfo(dmg, tr.HitPos, 300)
