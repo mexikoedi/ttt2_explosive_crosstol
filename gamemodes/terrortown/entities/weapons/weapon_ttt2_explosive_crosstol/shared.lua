@@ -114,7 +114,7 @@ if SERVER then
         explode:Fire("Explode", 0, 0)
 
         if GetConVar("ttt2_explosive_crosstol_attack_primary_sound"):GetBool() then
-            explode:EmitSound("explosive_crosstol.wav", 400, 400)
+            explode:EmitSound("explosive_crosstol.wav", 400)
         end
 
         local tr = self:GetOwner():GetEyeTrace()
