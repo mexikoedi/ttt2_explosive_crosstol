@@ -1,6 +1,6 @@
-# TTT2_Explosive_Crosstol
+# ttt2_explosive_crosstol
 
-TTT2_Explosive_Crosstol Addon for Garry's Mod.
+ttt2_explosive_crosstol addon for Garry's Mod.
 
 More information are available here: 
 https://steamcommunity.com/sharedfiles/filedetails/?id=2061944762

@@ -1,7 +1,10 @@
 {
-    "title": "TTT2 Explosive Crosstol",
+    "title": "[TTT2] Explosive Crosstol [WEAPON]",
     "type": "weapon",
-    "tags": "fun",
+    "tags": [
+        "realism",
+        "fun"
+    ],
     "description": "Pistol that fires explosive crossbow ammunition.",
     "ignore": [
         "*.psd",
