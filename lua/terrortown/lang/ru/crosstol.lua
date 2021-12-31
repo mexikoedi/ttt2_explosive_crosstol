@@ -1,4 +1,4 @@
-L = LANG.GetLanguageTableReference("ru")
+local L = LANG.GetLanguageTableReference("ru")
 L["ttt2_explosive_crosstol_name"] = "Взрывоопасный кросстол"
 L["ttt2_explosive_crosstol_desc"] = "Пистолет, стреляющий разрывными боеприпасами для арбалета."
 L["ttt2_explosive_crosstol_help1"] = "{primaryfire} Выстрелить и попасть."
