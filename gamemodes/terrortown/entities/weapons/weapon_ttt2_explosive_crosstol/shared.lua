@@ -9,12 +9,9 @@ SWEP.Base = "weapon_tttbase"
 SWEP.Kind = WEAPON_EQUIP1
 SWEP.HoldType = "pistol"
 SWEP.InLoadoutFor = nil
-
 SWEP.CanBuy = {ROLE_TRAITOR}
-
 SWEP.LimitedStock = true
 SWEP.Icon = "vgui/ttt/weapon_explosive_crosstol"
-
 SWEP.EquipMenuData = {
     type = "item_weapon",
     name = "ttt2_explosive_crosstol_name",
@@ -57,12 +54,8 @@ SWEP.ViewModel = "models/weapons/v_pist_fiveseven.mdl"
 SWEP.WorldModel = "models/weapons/w_pist_fiveseven.mdl"
 SWEP.IronSightsPos = Vector(-5.95, -4, 2.799)
 SWEP.IronSightsAng = Vector(0, 0, 0)
-
 function SWEP:Initialize()
-    if CLIENT then
-        self:AddHUDHelp("ttt2_explosive_crosstol_help1", "ttt2_explosive_crosstol_help2", true)
-    end
-
+    if CLIENT then self:AddHUDHelp("ttt2_explosive_crosstol_help1", "ttt2_explosive_crosstol_help2", true) end
     if SERVER then
         self.Primary.ClipSize = GetConVar("ttt2_explosive_crosstol_clipSize"):GetInt()
         self.Primary.DefaultClip = GetConVar("ttt2_explosive_crosstol_ammo"):GetInt()
@@ -79,23 +72,16 @@ function SWEP:Reload()
 end
 
 function SWEP:Holster()
-    if SERVER and IsValid(self.currentOwner) then
-        self.currentOwner:StopSound("explosive_crosstol2.wav")
-    end
-
+    if SERVER and IsValid(self.currentOwner) then self.currentOwner:StopSound("explosive_crosstol2.wav") end
     return true
 end
 
 function SWEP:OnRemove()
-    if SERVER and IsValid(self.currentOwner) then
-        self.currentOwner:StopSound("explosive_crosstol2.wav")
-    end
+    if SERVER and IsValid(self.currentOwner) then self.currentOwner:StopSound("explosive_crosstol2.wav") end
 end
 
 function SWEP:OnDrop()
-    if SERVER and IsValid(self.currentOwner) then
-        self.currentOwner:StopSound("explosive_crosstol2.wav")
-    end
+    if SERVER and IsValid(self.currentOwner) then self.currentOwner:StopSound("explosive_crosstol2.wav") end
 end
 
 function SWEP:Think()
@@ -112,11 +98,7 @@ if SERVER then
         explode:SetOwner(self:GetOwner())
         explode:Spawn()
         explode:Fire("Explode", 0, 0)
-
-        if GetConVar("ttt2_explosive_crosstol_attack_primary_sound"):GetBool() then
-            explode:EmitSound("explosive_crosstol.wav", 400)
-        end
-
+        if GetConVar("ttt2_explosive_crosstol_attack_primary_sound"):GetBool() then explode:EmitSound("explosive_crosstol.wav", 400) end
         local tr = self:GetOwner():GetEyeTrace()
         local dmg = DamageInfo()
         dmg:SetDamageType(64)
@@ -129,11 +111,9 @@ if SERVER then
 end
 
 SWEP.NextSecondaryAttack = 0
-
 function SWEP:SecondaryAttack()
     if self.NextSecondaryAttack > CurTime() then return end
     self.NextSecondaryAttack = CurTime() + self.Secondary.Delay
-
     if SERVER and GetConVar("ttt2_explosive_crosstol_attack_secondary_sound"):GetBool() then
         self.currentOwner = self:GetOwner()
         self:GetOwner():EmitSound("explosive_crosstol2.wav")

@@ -1,10 +1,8 @@
 CLGAMEMODESUBMENU.base = "base_gamemodesubmenu"
 CLGAMEMODESUBMENU.priority = 0
 CLGAMEMODESUBMENU.title = "submenu_addons_explosive_crosstol_title"
-
 function CLGAMEMODESUBMENU:Populate(parent)
     local form = vgui.CreateTTT2Form(parent, "header_addons_explosive_crosstol")
-
     form:MakeCheckBox({
         serverConvar = "ttt2_explosive_crosstol_attack_primary_sound",
         label = "label_explosive_crosstol_primary_sound"
