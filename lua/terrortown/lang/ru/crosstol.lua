@@ -1,8 +1,8 @@
 local L = LANG.GetLanguageTableReference("ru")
 L["ttt2_explosive_crosstol_name"] = "Взрывоопасный кросстол"
 L["ttt2_explosive_crosstol_desc"] = "Пистолет, стреляющий разрывными боеприпасами для арбалета."
-L["ttt2_explosive_crosstol_help1"] = "{primaryfire} Выстрелить и попасть."
-L["ttt2_explosive_crosstol_help2"] = "{secondaryfire} Расслабляющая музыка на 30 секунд."
+L["ttt2_explosive_crosstol_help1"] = "Выстрелить и попасть"
+L["ttt2_explosive_crosstol_help2"] = "Расслабляющая музыка на 30 секунд"
 L["label_explosive_crosstol_primary_sound"] = "Включить звук основной атаки"
 L["label_explosive_crosstol_secondary_sound"] = "Включить вторичный звук атаки"
 L["label_explosive_crosstol_automaticFire"] = "Включить автоматический огонь"

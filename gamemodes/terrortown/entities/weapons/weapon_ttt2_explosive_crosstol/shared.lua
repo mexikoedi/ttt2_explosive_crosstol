@@ -54,7 +54,7 @@ SWEP.WorldModel = "models/weapons/w_pist_fiveseven.mdl"
 SWEP.IronSightsPos = Vector(-5.95, -4, 2.799)
 SWEP.IronSightsAng = Vector(0, 0, 0)
 function SWEP:Initialize()
-    if CLIENT then self:AddHUDHelp("ttt2_explosive_crosstol_help1", "ttt2_explosive_crosstol_help2", true) end
+    if CLIENT then self:AddTTT2HUDHelp("ttt2_explosive_crosstol_help1", "ttt2_explosive_crosstol_help2") end
     if SERVER then
         self.Primary.ClipSize = GetConVar("ttt2_explosive_crosstol_clipSize"):GetInt()
         self.Primary.DefaultClip = GetConVar("ttt2_explosive_crosstol_ammo"):GetInt()
