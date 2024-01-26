@@ -43,7 +43,6 @@ SWEP.Primary.DefaultClip = GetConVar("ttt2_explosive_crosstol_ammo"):GetInt()
 SWEP.Primary.Automatic = GetConVar("ttt2_explosive_crosstol_automaticFire"):GetBool()
 SWEP.Primary.RPS = GetConVar("ttt2_explosive_crosstol_rps"):GetFloat()
 SWEP.Primary.Ammo = "XBowBolt"
-BOLT_MODEL = "models/crossbow_bolt.mdl"
 SWEP.Secondary.ClipSize = -1
 SWEP.Secondary.DefaultClip = -1
 SWEP.Secondary.Automatic = false
@@ -117,5 +116,57 @@ function SWEP:SecondaryAttack()
     if SERVER and GetConVar("ttt2_explosive_crosstol_attack_secondary_sound"):GetBool() then
         self.currentOwner = self:GetOwner()
         self:GetOwner():EmitSound("explosive_crosstol2.wav")
+    end
+end
+
+if CLIENT then
+    function SWEP:AddToSettingsMenu(parent)
+        local form = vgui.CreateTTT2Form(parent, "header_equipment_additional")
+        form:MakeCheckBox({
+            serverConvar = "ttt2_explosive_crosstol_attack_primary_sound",
+            label = "label_explosive_crosstol_primary_sound"
+        })
+
+        form:MakeCheckBox({
+            serverConvar = "ttt2_explosive_crosstol_attack_secondary_sound",
+            label = "label_explosive_crosstol_secondary_sound"
+        })
+
+        form:MakeCheckBox({
+            serverConvar = "ttt2_explosive_crosstol_automaticFire",
+            label = "label_explosive_crosstol_automaticFire"
+        })
+
+        form:MakeSlider({
+            serverConvar = "ttt2_explosive_crosstol_damage",
+            label = "label_explosive_crosstol_damage",
+            min = 0,
+            max = 200,
+            decimal = 0
+        })
+
+        form:MakeSlider({
+            serverConvar = "ttt2_explosive_crosstol_ammo",
+            label = "label_explosive_crosstol_ammo",
+            min = 0,
+            max = 10,
+            decimal = 0
+        })
+
+        form:MakeSlider({
+            serverConvar = "ttt2_explosive_crosstol_clipSize",
+            label = "label_explosive_crosstol_clipSize",
+            min = 0,
+            max = 10,
+            decimal = 0
+        })
+
+        form:MakeSlider({
+            serverConvar = "ttt2_explosive_crosstol_rps",
+            label = "label_explosive_crosstol_rps",
+            min = 0,
+            max = 10,
+            decimal = 1
+        })
     end
 end
