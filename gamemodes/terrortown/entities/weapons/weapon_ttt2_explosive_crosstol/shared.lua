@@ -37,7 +37,7 @@ SWEP.Primary.Recoil = 50
 SWEP.Primary.Damage = GetConVar("ttt2_explosive_crosstol_damage"):GetInt()
 SWEP.Primary.NumShots = -1
 SWEP.Primary.Delay = 1
-SWEP.Primary.Distance = 10
+SWEP.Primary.Radius = GetConVar("ttt2_explosive_crosstol_radius"):GetInt()
 SWEP.Primary.ClipSize = GetConVar("ttt2_explosive_crosstol_clipSize"):GetInt()
 SWEP.Primary.DefaultClip = GetConVar("ttt2_explosive_crosstol_ammo"):GetInt()
 SWEP.Primary.Automatic = GetConVar("ttt2_explosive_crosstol_automaticFire"):GetBool()
@@ -90,21 +90,35 @@ if SERVER then
     function SWEP:PrimaryAttack()
         self:SetNextPrimaryFire(CurTime() + self.Primary.Delay / self.Primary.RPS)
         if not self:CanPrimaryAttack() then return end
-        local eyetrace = self:GetOwner():GetEyeTrace()
-        self.BaseClass.ShootEffects(self)
+        local owner = self:GetOwner()
+        if not IsValid(owner) then return end
+        local eyetrace = owner:GetEyeTrace()
+        local hitPos = eyetrace.HitPos
+        self:ShootEffects()
         local explode = ents.Create("env_explosion")
-        explode:SetPos(eyetrace.HitPos)
-        explode:SetOwner(self:GetOwner())
+        explode:SetPos(hitPos)
+        explode:SetOwner(owner)
         explode:Spawn()
-        explode:Fire("Explode", 0, 0)
+        explode:Fire("Explode", "", 0)
         if GetConVar("ttt2_explosive_crosstol_attack_primary_sound"):GetBool() then explode:EmitSound("explosive_crosstol.wav", 400) end
-        local tr = self:GetOwner():GetEyeTrace()
-        local dmg = DamageInfo()
-        dmg:SetDamageType(64)
-        dmg:SetDamage(self.Primary.Damage / 2)
-        dmg:SetAttacker(self:GetOwner())
-        dmg:SetInflictor(self)
-        util.BlastDamageInfo(dmg, tr.HitPos, 300)
+        local radius = self.Primary.Radius
+        local maxDamage = self.Primary.Damage
+        local entities = ents.FindInSphere(hitPos, radius)
+        for _, ent in ipairs(entities) do
+            if IsValid(ent) and ent:IsPlayer() and ent:IsActive() then
+                local distance = hitPos:Distance(ent:GetPos())
+                local damage = maxDamage
+                if distance > 0 then damage = maxDamage * math.max(0, 1 - distance / radius) end
+                if ent == eyetrace.Entity then damage = maxDamage end
+                local dmgInfo = DamageInfo()
+                dmgInfo:SetDamage(damage)
+                dmgInfo:SetAttacker(owner)
+                dmgInfo:SetInflictor(self)
+                dmgInfo:SetDamageType(DMG_BLAST)
+                ent:TakeDamageInfo(dmgInfo)
+            end
+        end
+
         self:TakePrimaryAmmo(1)
     end
 end
@@ -115,7 +129,7 @@ function SWEP:SecondaryAttack()
     self.NextSecondaryAttack = CurTime() + self.Secondary.Delay
     if SERVER and GetConVar("ttt2_explosive_crosstol_attack_secondary_sound"):GetBool() then
         self.currentOwner = self:GetOwner()
-        self:GetOwner():EmitSound("explosive_crosstol2.wav")
+        if IsValid(self.currentOwner) then self.currentOwner:EmitSound("explosive_crosstol2.wav") end
     end
 end
 
@@ -142,6 +156,14 @@ if CLIENT then
             label = "label_explosive_crosstol_damage",
             min = 0,
             max = 200,
+            decimal = 0
+        })
+
+        form:MakeSlider({
+            serverConvar = "ttt2_explosive_crosstol_radius",
+            label = "label_explosive_crosstol_radius",
+            min = 0,
+            max = 500,
             decimal = 0
         })
 

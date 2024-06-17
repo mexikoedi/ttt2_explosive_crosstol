@@ -7,6 +7,7 @@ L["label_explosive_crosstol_primary_sound"] = "Включить звук осн�
 L["label_explosive_crosstol_secondary_sound"] = "Включить вторичный звук атаки"
 L["label_explosive_crosstol_automaticFire"] = "Включить автоматический огонь"
 L["label_explosive_crosstol_damage"] = "Ущерб, который необходимо нанести"
+L["label_explosive_crosstol_radius"] = "Радиус, в котором наносится урон от взрыва"
 L["label_explosive_crosstol_ammo"] = "Боеприпасы, которые должны быть в наличии"
 L["label_explosive_crosstol_clipSize"] = "Размер клипа, который должен быть в наличии"
 L["label_explosive_crosstol_rps"] = "Выстрелов в секунду"
