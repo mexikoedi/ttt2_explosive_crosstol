@@ -92,6 +92,7 @@ if SERVER then
         if not self:CanPrimaryAttack() then return end
         local owner = self:GetOwner()
         if not IsValid(owner) then return end
+        owner:LagCompensation(true)
         local eyetrace = owner:GetEyeTrace()
         local hitPos = eyetrace.HitPos
         self:ShootEffects()
@@ -120,6 +121,7 @@ if SERVER then
         end
 
         self:TakePrimaryAmmo(1)
+        owner:LagCompensation(false)
     end
 end
 
