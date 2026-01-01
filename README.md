@@ -2,7 +2,7 @@
 
 [TTT2] Explosive Crosstol [WEAPON] addon for Garry's Mod.
 
-More information are available here: 
+More information is available here: 
 https://steamcommunity.com/sharedfiles/filedetails/?id=2061944762
 
 Feel free to contribute to this project. <br>
