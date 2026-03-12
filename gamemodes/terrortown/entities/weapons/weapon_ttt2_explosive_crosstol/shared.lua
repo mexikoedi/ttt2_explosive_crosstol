@@ -106,7 +106,7 @@ if SERVER then
         local maxDamage = self.Primary.Damage
         local entities = ents.FindInSphere(hitPos, radius)
         for _, ent in ipairs(entities) do
-            if IsValid(ent) and ent:IsPlayer() and ent:IsActive() then
+            if IsValid(self) and IsValid(ent) and ent:IsPlayer() and ent:IsTerror() then
                 local distance = hitPos:Distance(ent:GetPos())
                 local damage = maxDamage
                 if distance > 0 then damage = maxDamage * math.max(0, 1 - distance / radius) end
